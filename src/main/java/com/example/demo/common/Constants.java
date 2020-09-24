@@ -2,7 +2,8 @@ package com.example.demo.common;
 
 public class Constants {
     public static final String FIELD_INVALID_EXCEPTION_MESSAGE = "Invalid Values";
-    public static final String TRAINEE_NOT_FOUND_EXCEPTION_MESSAGE = "Searching user doesn't exist";
+    public static final String TRAINEE_NOT_FOUND_EXCEPTION_MESSAGE = "Searching trainee doesn't exist";
+    public static final String TRAINER_NOT_FOUND_EXCEPTION_MESSAGE = "Searching trainer doesn't exist";
 
     public static final String TRAINEE_NAME_NULL_EXCEPTION_MESSAGE = "Trainee: Name is mandatory";
     public static final String TRAINEE_OFFICE_NULL_EXCEPTION_MESSAGE = "Trainee: Office is mandatory";

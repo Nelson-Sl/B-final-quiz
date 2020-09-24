@@ -1,6 +1,7 @@
 package com.example.demo.common;
 
 import com.example.demo.Exception.TraineeNotFoundException;
+import com.example.demo.Exception.TrainerNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -28,8 +29,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
     }
 
-    @ExceptionHandler(TraineeNotFoundException.class)
-    public ResponseEntity<ErrorMessage> userInfoNotFoundExceptionHandler(TraineeNotFoundException ex) {
+    @ExceptionHandler({TraineeNotFoundException.class, TrainerNotFoundException.class})
+    public ResponseEntity<ErrorMessage> userInfoNotFoundExceptionHandler(Exception ex) {
         String message = ex.getMessage();
         ErrorMessage errorMessage = ErrorMessage.builder()
                 .message(message).build();
