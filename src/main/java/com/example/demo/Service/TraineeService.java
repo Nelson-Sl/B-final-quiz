@@ -1,5 +1,7 @@
 package com.example.demo.Service;
 
+import com.example.demo.Exception.TraineeNotFoundException;
+import com.example.demo.common.Constants;
 import com.example.demo.common.Converters;
 import com.example.demo.domain.Trainee;
 import com.example.demo.entity.TraineeEntity;
@@ -42,5 +44,13 @@ public class TraineeService {
         }
 
         return traineeEntityList;
+    }
+
+    public void deleteTrainee(Long id) {
+        if(this.traineeRepository.existsById(id)) {
+            this.traineeRepository.deleteById(id);
+        }else {
+            throw new TraineeNotFoundException(Constants.TRAINEE_NOT_FOUND_EXCEPTION_MESSAGE);
+        }
     }
 }
