@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Data //getSet属性
-@Builder //构建对象
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Team {
+public class Group {
     private String teamName;
-    private List<Trainee> teamMembers;
+    private List<Trainee> trainees;
+    private List<Trainer> trainers;
 }

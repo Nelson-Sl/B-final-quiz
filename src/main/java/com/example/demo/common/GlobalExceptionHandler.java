@@ -2,6 +2,7 @@ package com.example.demo.common;
 
 import com.example.demo.Exception.TraineeNotFoundException;
 import com.example.demo.Exception.TrainerNotFoundException;
+import com.example.demo.Exception.TrainerNotSatisfiedForGroupingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -35,5 +36,13 @@ public class GlobalExceptionHandler {
         ErrorMessage errorMessage = ErrorMessage.builder()
                 .message(message).build();
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+    }
+
+    @ExceptionHandler(TrainerNotSatisfiedForGroupingException.class)
+    public ResponseEntity<ErrorMessage> trainerNotEnoughExceptionHandler(TrainerNotSatisfiedForGroupingException ex) {
+        String message = ex.getMessage();
+        ErrorMessage errorMessage = ErrorMessage.builder()
+                .message(message).build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
     }
 }
