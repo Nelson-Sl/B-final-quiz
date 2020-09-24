@@ -32,4 +32,9 @@ public class TraineeController {
     public TraineeEntity addTrainee(@RequestBody @Valid Trainee trainee) {
          return this.traineeService.addTrainee(trainee);
     }
+
+    @GetMapping
+    public List<TraineeEntity> getTrainees() {
+        return this.traineeService.findAllTrainees();
+    }
 }

@@ -6,6 +6,11 @@ import com.example.demo.entity.TraineeEntity;
 import com.example.demo.repository.TraineeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 @Service
 public class TraineeService {
     private final TraineeRepository traineeRepository;
@@ -25,5 +30,17 @@ public class TraineeService {
     public TraineeEntity addTrainee(Trainee trainee) {
         TraineeEntity traineeSaving = Converters.traineeEntityConverter(trainee);
         return this.traineeRepository.save(traineeSaving);
+    }
+
+    public List<TraineeEntity> findAllTrainees() {
+        Iterable<TraineeEntity> traineeEntities = this.traineeRepository.findAll();
+        List<TraineeEntity> traineeEntityList = new ArrayList<>();
+
+        Iterator<TraineeEntity> traineeEntitiesIterator = traineeEntities.iterator();
+        while(traineeEntitiesIterator.hasNext()) {
+            traineeEntityList.add(traineeEntitiesIterator.next());
+        }
+
+        return traineeEntityList;
     }
 }
