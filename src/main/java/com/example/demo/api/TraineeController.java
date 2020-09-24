@@ -20,14 +20,6 @@ public class TraineeController {
         this.traineeService = traineeService;
     }
 
-//    @GetMapping("/students")
-//    public List<Student> getStudentList() {
-//        return studentListService.getStudentList();
-//    }
-//
-//    @GetMapping("/randomTeams")
-//    public Team[] getRandomTeam() {return studentListService.getRandomTeams(); }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public TraineeEntity addTrainee(@RequestBody @Valid Trainee trainee) {
@@ -44,4 +36,6 @@ public class TraineeController {
     public void deleteTrainee(@PathVariable Long id) {
         this.traineeService.deleteTrainee(id);
     }
+
+
 }

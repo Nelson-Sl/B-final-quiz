@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
         List<FieldError> errors = ex.getBindingResult().getFieldErrors();
         Map<String, String> details = new HashMap<>();
         for(FieldError error: errors) {
-            details.put(error.getField(), error.getDefaultMessage());
+            details.put(error.getField(),  error.getDefaultMessage());
         }
         ErrorMessage errorMessage = ErrorMessage.builder()
                 .message(Constants.FIELD_INVALID_EXCEPTION_MESSAGE)
