@@ -23,6 +23,7 @@ public class GroupEntity {
     private Long id;
     private String teamName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "TraineeEntity")
+    // GTB: - 集合类型字段一般在字段声明时就初始化为空集合
     private List<TraineeEntity> trainees;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "TrainerEntity")
     private List<TrainerEntity> trainers;

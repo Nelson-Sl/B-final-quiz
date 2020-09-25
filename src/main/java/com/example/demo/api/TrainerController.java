@@ -27,6 +27,7 @@ public class TrainerController {
     }
 
     @GetMapping
+    // GTB: - 接口错误：应该查询所有未分组讲师，而非所有讲师
     public List<TrainerEntity> getTrainers() {
         return this.trainerService.findAllTrainers();
     }

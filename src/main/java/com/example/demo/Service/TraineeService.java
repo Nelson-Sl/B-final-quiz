@@ -21,6 +21,7 @@ public class TraineeService {
         this.traineeRepository = traineeRepository;
     }
 
+    // GTB: - 注释的代码应该删除
 //    public List<Student> getStudentList() {
 //        return StudentData.getStudentList();
 //    }
@@ -35,6 +36,7 @@ public class TraineeService {
     }
 
     public List<TraineeEntity> findAllTrainees() {
+        // GTB: - 推荐使用JpaRepository接口的findAll方法，直接返回List
         Iterable<TraineeEntity> traineeEntities = this.traineeRepository.findAll();
         List<TraineeEntity> traineeEntityList = new ArrayList<>();
 

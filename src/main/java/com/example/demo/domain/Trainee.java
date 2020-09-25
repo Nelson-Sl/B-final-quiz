@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class Trainee {
     @NotEmpty(message = Constants.TRAINEE_NAME_NULL_EXCEPTION_MESSAGE)
+    // GTB: - String类型的校验推荐使用@NotBlank
     private String name;
     @NotEmpty(message = Constants.TRAINEE_OFFICE_NULL_EXCEPTION_MESSAGE)
     private String office;

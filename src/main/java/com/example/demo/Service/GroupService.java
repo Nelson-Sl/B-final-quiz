@@ -21,6 +21,7 @@ public class GroupService {
     private final GroupRepository groupRepository;
     private final TraineeRepository traineeRepository;
     private final TrainerRepository trainerRepository;
+    // GTB: - 无用的代码应该删除
     private final TraineeService traineeService;
     private final TrainerService trainerService;
 
@@ -34,6 +35,7 @@ public class GroupService {
 
 
     public List<Group> autoGenerateGroup() {
+        // GTB: - magic number
         if(trainerRepository.count() < 2) {
             throw new TrainerNotSatisfiedForGroupingException(Constants.TRAINER_NOT_ENOUGH_EXCEPTION_MESSAGE);
         }
